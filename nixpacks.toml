@@ -5,4 +5,4 @@ nixPkgs = ["php83", "php83Extensions.pdo_mysql", "php83Extensions.pdo_pgsql", "p
 cmds = ["composer install --no-dev --optimize-autoloader"]
 
 [start]
-cmd = "php artisan migrate --force && php artisan storage:link && php -S 0.0.0.0:$PORT -t public"
+cmd = "touch /app/database/database.sqlite && php artisan migrate --force && php artisan db:seed --force && php artisan storage:link && php -S 0.0.0.0:$PORT -t public"

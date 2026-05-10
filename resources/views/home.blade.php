@@ -74,7 +74,8 @@
                         flex-shrink: 0;
                     ">
                         <!-- Foto di dalam lingkaran -->
-                        <img src="{{ asset('storage/rahmad.png.png') }}?v={{ filemtime(storage_path('app/public/rahmad.png.png')) }}"
+                        @if(file_exists(storage_path('app/public/rahmad.png.png')))
+                        <img src="{{ asset('storage/rahmad.png.png') }}"
                              alt="Rahmad Widyo"
                              style="
                                  position: absolute;
@@ -85,8 +86,8 @@
                                  width: auto;
                                  object-fit: contain;
                                  object-position: bottom center;
-                             "
-                             onerror="this.style.display='none'">
+                             ">
+                        @endif
                     </div>
 
                     <!-- Chip floating kiri -->

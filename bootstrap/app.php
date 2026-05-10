@@ -16,6 +16,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'role'  => \Spatie\Permission\Middleware\RoleMiddleware::class,
         ]);
 
+        // Trust all proxies (Railway, etc.)
+        $middleware->trustProxies(at: '*');
+
         // Redirect unauthenticated users ke login dengan URL penuh
         $middleware->redirectGuestsTo(fn () => url('/login'));
     })
